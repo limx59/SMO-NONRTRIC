@@ -22,7 +22,7 @@ networks:
 
 services:
   zookeeper:
-    image: nexus3.onap.org:10001/onap/dmaap/zookeeper:6.0.3
+    image: arawirelesshub/zookeeper:6.0.3
     container_name: zookeeper
     ports:
       - "2181:2181"
@@ -43,7 +43,7 @@ services:
       - default
 
   kafka:
-   image: nexus3.onap.org:10001/onap/dmaap/kafka111:1.0.4
+   image: arawirelesshub/kafka111:1.0.4
    container_name: kafka
    ports:
     - "9092:9092"
@@ -70,7 +70,7 @@ services:
     - zookeeper
 
   dmaap:
-    image: nexus3.onap.org:10001/onap/dmaap/dmaap-mr:1.1.18
+    image: arawirelesshub/dmaap-mr:1.1.18
     container_name: dmaap-mr
     ports:
       - "3904:3904"

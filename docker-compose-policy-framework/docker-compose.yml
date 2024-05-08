@@ -24,7 +24,7 @@ networks:
     name: nonrtric-docker-net
 services:
    mariadb:
-      image: nexus3.onap.org:10001/mariadb:10.5.8
+      image: arawirelesshub/mariadb:10.5.8
       container_name: mariadb
       hostname: mariadb
       volumes:
@@ -37,7 +37,7 @@ services:
       expose:
        - 3306
    api:
-      image: nexus3.onap.org:10001/onap/policy-api:2.4.2
+      image: arawirelesshub/policy-api:2.4.2
       container_name: policy-api
       depends_on:
        - mariadb
@@ -56,7 +56,7 @@ services:
         'mariadb', '3306'
         ]
    pap:
-      image: nexus3.onap.org:10001/onap/policy-pap:2.4.2
+      image: arawirelesshub/policy-pap:2.4.2
       container_name: policy-pap
       depends_on:
        - mariadb
@@ -78,7 +78,7 @@ services:
         'api', '6969'
         ]
    xacml-pdp:
-      image: nexus3.onap.org:10001/onap/policy-xacml-pdp:2.4.2
+      image: arawirelesshub/policy-xacml-pdp:2.4.2
       container_name: policy-xacml-pdp
       depends_on:
        - mariadb
@@ -98,7 +98,7 @@ services:
         'pap', '6969'
         ]
    drools:
-      image: nexus3.onap.org:10001/onap/policy-drools:1.8.2
+      image: arawirelesshub/policy-drools:1.8.2
       container_name: drools
       depends_on:
        - mariadb
@@ -119,7 +119,7 @@ services:
         'onap-dmaap', '3904'
         ]
    drools-apps:
-      image: nexus3.onap.org:10001/onap/policy-pdpd-cl:1.8.2
+      image: arawirelesshub/policy-pdpd-cl:1.8.2
       container_name: drools-apps
       depends_on:
        - mariadb
@@ -145,7 +145,7 @@ services:
         'pap', '6969'
         ]
    apex-pdp:
-      image: nexus3.onap.org:10001/onap/policy-apex-pdp:2.5.4
+      image: arawirelesshub/policy-apex-pdp:2.5.4
       container_name: policy-apex-pdp
       depends_on:
        - mariadb
@@ -166,7 +166,7 @@ services:
         'pap', '6969'
         ]
    distribution:
-      image: nexus3.onap.org:10001/onap/policy-distribution:2.5.2
+      image: arawirelesshub/policy-distribution:2.5.2
       container_name: policy-distribution
       depends_on:
        - mariadb
